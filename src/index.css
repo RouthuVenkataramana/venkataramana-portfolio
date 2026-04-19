@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Base Reset ─── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Onest', sans-serif;
+  }
+
+  body {
+    @apply bg-slate-950 text-slate-200;
+    font-family: 'Onest', sans-serif;
+  }
+
+  body.light {
+    @apply bg-sky-50 text-slate-900;
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #020617;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(34, 211, 238, 0.25);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(34, 211, 238, 0.45);
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+}
+
+/* ─── Utility Classes ─── */
+@layer utilities {
+  .gradient-text {
+    background: linear-gradient(135deg, #22d3ee, #818cf8, #f472b6);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease infinite;
+  }
+
+  .gradient-text-light {
+    background: linear-gradient(135deg, #0891b2, #6366f1, #ec4899);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: gradientShift 5s ease infinite;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #22d3ee, #818cf8);
+  }
+
+  .dot-pattern {
+    background-image: radial-gradient(rgba(34, 211, 238, 0.13) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .dot-pattern-light {
+    background-image: radial-gradient(rgba(8, 145, 178, 0.1) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+
+  .section-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1), transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .section-reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card-hover {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-5px);
+  }
+
+  .nav-blur {
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  .cursor-blink::after {
+    content: '|';
+    animation: blink 1s step-end infinite;
+    color: #22d3ee;
+    font-weight: 300;
+  }
+
+  .chip-hover {
+    transition: transform 0.22s ease, box-shadow 0.22s ease;
+  }
+  .chip-hover:hover {
+    transform: scale(1.07) translateY(-2px);
+  }
+}
+
+/* ─── Section Scroll Margin ─── */
+section {
+  scroll-margin-top: 70px;
+}
